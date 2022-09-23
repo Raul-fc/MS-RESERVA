@@ -1,27 +1,25 @@
-﻿/*
+﻿
 using MassTransit;
 using MediatR;
-using ShareKernel.IntegrationEvents;
+using Reservas.Application.UseCases.Command.Asientos.actualizarCheckingCommand;
+using Sharedkernel.IntegrationEvents;
 using System;
 using System.Threading.Tasks;
-*/
+
 namespace Reservas.Application.UseCases.Consumers {
-	public class CheckinConfirmadoConsumer {
-		/*
-		 : IConsumer<CheckinConfirmado>
+	public class CheckinConfirmadoConsumer : IConsumer<Checkin> {
 		private readonly IMediator _mediator;
-		public const string ExchangeName = "checking-confirmado-exchange";
-		public const string QueueName = "checking-confirmado-checking";
+		public const string ExchangeName = "checkin-realizado";
+		public const string QueueName = "checkin-realizado-reserva";
 
 		public CheckinConfirmadoConsumer(IMediator mediator) {
 			_mediator = mediator;
 		}
 
-		public async Task Consume(ConsumeContext<CheckinConfirmado> context) {
-			CheckinConfirmado @event = context.Message;
-			CrearProductoCommand command = new CrearProductoCommand(@event.ArticuloId, 0, @event.PrecioVenta, @event.Nombre);
+		public async Task Consume(ConsumeContext<Checkin> context) {
+			Checkin @event = context.Message;
+			ActualizarCheckinCommand command = new ActualizarCheckinCommand(@event.id, @event.NroReserva, @event.NroAsiento);
 			await _mediator.Send(command);
 		}
-		*/
 	}
 }

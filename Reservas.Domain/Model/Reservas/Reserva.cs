@@ -68,6 +68,10 @@ namespace Reservas.Domain.Model.Reservas {
 		public void VentaReserva() {
 			Estado = 'V';
 		}
+
+		public void VentaCheckIn() {
+			Estado = 'C';
+		}
 		public void ConsolidarReserva() {
 			var evento = new ReservaCreado(Id, FechaVuelo, NroReserva, Costo, IdVuelo, _vueloReserva);
 			AddDomainEvent(evento);

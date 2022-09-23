@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Sharedkernel.IntegrationEvents {
-	public record CheckinConfirmado : IntegrationEvent {
+	public record AsientosRegistrados : IntegrationEvent {
 
 	}
 }

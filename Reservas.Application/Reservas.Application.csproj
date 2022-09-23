@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Reservas.Domain\Reservas.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Queries\Reservas\SearchAsientos\" />
+  </ItemGroup>
+
 </Project>

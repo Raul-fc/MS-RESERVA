@@ -48,6 +48,7 @@ namespace Reservas.Infraestructure {
 
 			services.AddMassTransit(config => {
 				config.AddConsumer<VueloRegistradoConsumer>().Endpoint(endpoint => endpoint.Name = VueloRegistradoConsumer.QueueName);
+				config.AddConsumer<CheckinConfirmadoConsumer>().Endpoint(endpoint => endpoint.Name = CheckinConfirmadoConsumer.QueueName);
 
 				config.UsingRabbitMq((context, cfg) => {
 					var uri = string.Format("amqp://{0}:{1}@{2}:{3}", rabbitMqUserName, rabbitMqPassword, rabbitMqHost, rabbitMqPort);
@@ -55,6 +56,9 @@ namespace Reservas.Infraestructure {
 
 					cfg.ReceiveEndpoint(VueloRegistradoConsumer.QueueName, endpoint => {
 						endpoint.ConfigureConsumer<VueloRegistradoConsumer>(context);
+					});
+					cfg.ReceiveEndpoint(CheckinConfirmadoConsumer.QueueName, endpoint => {
+						endpoint.ConfigureConsumer<CheckinConfirmadoConsumer>(context);
 					});
 				});
 			});

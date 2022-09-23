@@ -12,6 +12,7 @@ namespace Sharedkernel.IntegrationEvents {
 		public string estado { get; set; }
 		public decimal precio { get; set; }
 		public DateTime fecha { get; set; }
+		public Guid codRuta { get; set; }
 		public Guid codDestino { get; set; }
 		public Guid codOrigen { get; set; }
 		public Guid codAeronave { get; set; }

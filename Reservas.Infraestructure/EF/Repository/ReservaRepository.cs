@@ -23,6 +23,7 @@ namespace Reservas.Infraestructure.EF.Repository {
 					.SingleAsync(x => x.Id == id);
 		}
 
+
 		public async Task<Reserva> ObtReserva(string nroReserva) {
 			/*
 			return await _reservas

@@ -2,17 +2,13 @@
 using MediatR;
 using Reservas.Application.UseCases.Command.Asientos.registrarAsientos;
 using Sharedkernel.IntegrationEvents;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Reservas.Application.UseCases.Consumers {
 	public class VueloRegistradoConsumer : IConsumer<VueloHabilitado> {
 		private readonly IMediator _mediator;
 		public const string ExchangeName = "vuelo-registrado-exchange";
-		public const string QueueName = "vuelo-registrado";
+		public const string QueueName = "vuelo-registrado-reserva";
 
 		public VueloRegistradoConsumer(IMediator mediator) {
 			_mediator = mediator;

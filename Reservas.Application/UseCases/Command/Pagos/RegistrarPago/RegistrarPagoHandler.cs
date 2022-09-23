@@ -45,7 +45,6 @@ namespace Reservas.Application.UseCases.Command.Pagos.RegistrarPago {
 				await _pagoRepository.CreateAsync(objPago);
 				await _unitOfWork.guardar();
 
-
 				await _unitOfWork.Commit();
 				Tipo = tipo;
 				idPag = objPago.Id;

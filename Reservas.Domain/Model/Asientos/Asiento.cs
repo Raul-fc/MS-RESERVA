@@ -28,5 +28,8 @@ namespace Reservas.Domain.Model.Asientos {
 		public void AsientoAnulado() {
 			Estado = 'D';
 		}
+		public void AsientoCheckIn() {
+			Estado = 'C';
+		}
 	}
 }

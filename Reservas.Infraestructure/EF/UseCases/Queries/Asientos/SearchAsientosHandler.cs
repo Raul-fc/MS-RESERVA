@@ -29,7 +29,7 @@ namespace Reservas.Infraestructure.EF.UseCases.Queries.Asientos {
 
 			var asientoList = await _asientos
 							.AsNoTracking()
-							.Where(x => x.VueloId == objReserva.IdVuelo && x.Estado == 'R')
+							.Where(x => x.VueloId == objReserva.IdVuelo && x.Estado == request.Estado)
 							.ToListAsync();
 
 			var result = new List<AsientoDto>();

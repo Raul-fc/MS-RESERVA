@@ -44,7 +44,6 @@ namespace Reservas.Application.UseCases.Command.Asientos.actualizarEstadoAsiento
 						myAsiento.AsientoAnulado();
 					}
 					await _asientoRepository.UpdateAsync(myAsiento);
-
 				}
 			}
 			catch

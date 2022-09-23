@@ -36,6 +36,20 @@ namespace Reservas.Infraestructure.EF.Repository {
 			return data;
 		}
 
+		public async Task<List<Asiento>> obtAsientosConEstadoVendido(Guid idVuelo) {
+			var data = await _asiento
+				.Where(x => x.Estado == 'V' && x.VueloId == idVuelo)
+				.ToListAsync();
+			return data;
+		}
+
+		public Asiento obtAsiento(string NroAsiento) {
+			var data = _asiento
+				.Where(x => x.NroAsiento == NroAsiento)
+				.FirstOrDefault();
+			return data;
+		}
+
 		public async Task<List<Asiento>> obtAsientosDisponibles(Guid idVuelo) {
 			return await _asiento
 				.Where(x => x.Estado == 'D' && x.VueloId == idVuelo)
